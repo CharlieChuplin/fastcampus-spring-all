@@ -1,6 +1,7 @@
 package com.fastcampus.programming.dto;
 
 
+import com.fastcampus.programming.code.StatusCode;
 import com.fastcampus.programming.entity.Developer;
 import com.fastcampus.programming.type.DeveloperLevel;
 import com.fastcampus.programming.type.DeveloperSkillType;
@@ -19,6 +20,7 @@ public class DeveloperDetailDto {
     private DeveloperSkillType developerSkillType;
     private Integer experienceYears;
     private String memberId;
+    private StatusCode statusCode;
     private String name;
     private Integer age;
     private LocalDateTime createdAt;
@@ -32,6 +34,7 @@ public class DeveloperDetailDto {
                 .name(developer.getName())
                 .age(developer.getAge())
                 .createdAt(developer.getCreatedAt())
+                .statusCode(developer.getStatusCode())
                 .build();
     }
 }
