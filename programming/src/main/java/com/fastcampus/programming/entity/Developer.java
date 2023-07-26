@@ -1,6 +1,7 @@
 package com.fastcampus.programming.entity;
 
 import com.fastcampus.programming.code.StatusCode;
+import com.fastcampus.programming.dto.CreateDeveloper;
 import com.fastcampus.programming.type.DeveloperLevel;
 import com.fastcampus.programming.type.DeveloperSkillType;
 import lombok.*;
@@ -42,6 +43,8 @@ public class Developer {
     private LocalDateTime createdAt;
     @LastModifiedDate
     private LocalDateTime updateAt;
+
+
 
 
 }
