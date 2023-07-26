@@ -86,7 +86,7 @@ class DMakerServiceTest {
                 ArgumentCaptor.forClass(Developer.class);
 
         // when
-        dMakerService.createDeveloper(getCreateRequest(SENIOR, FRONT_END, MIN_SENIOR_EXPERIENCE_YEARS+1));
+        dMakerService.createDeveloper(getCreateRequest(SENIOR, FRONT_END, MIN_SENIOR_EXPERIENCE_YEARS));
 
         // then
         verify(developerRepository, times(1))
@@ -94,7 +94,7 @@ class DMakerServiceTest {
         Developer savedDeveloper = captor.getValue();
         assertEquals(SENIOR, savedDeveloper.getDeveloperLevel());
         assertEquals(FRONT_END, savedDeveloper.getDeveloperSkillType());
-        assertEquals(10, savedDeveloper.getExperienceYears());
+        assertEquals(MIN_SENIOR_EXPERIENCE_YEARS, savedDeveloper.getExperienceYears());
     }
 
     @Test
@@ -119,7 +119,7 @@ class DMakerServiceTest {
         // then
         DMakerException dMakerException = assertThrows(DMakerException.class,
                 () -> dMakerService.createDeveloper(
-                        getCreateRequest(SENIOR, FRONT_END, MAX_JUNIOR_EXPERIENCE_YEARS + 1)));
+                        getCreateRequest(JUNIOR, FRONT_END, MAX_JUNIOR_EXPERIENCE_YEARS + 1)));
 
         assertEquals(DMakerErrorCode.LEVEL_EXPERIENCE_YEARS_NOT_MATCHED, dMakerException.getDMakerErrorCode());
 
